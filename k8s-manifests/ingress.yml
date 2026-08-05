@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadat:
+  name: electronix-ingress
+  namespace: electronix
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  rules:
+    - host: electronix.vvlabs.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-svc
+                port:
+                  number: 80
+
+    - host: api.electronix.vvlabs.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-svc
+                port:
+                  number: 5000
+
+           
