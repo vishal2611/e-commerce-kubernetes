@@ -23,7 +23,7 @@ spec:
       containers:
       - name: frontend
 
-        image: vishalv26/electronix-frontend:v1
+        image: vishalv26/electronix-frontend:v2
 
         imagePullPolicy: Always
 
